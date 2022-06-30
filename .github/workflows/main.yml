@@ -1,8 +1,8 @@
-name: Create and publish a Docker image
+name: Test and publish
 
 on:
   push:
-    branches: ['release']
+    branches: ['master']
     tags: [ 'v*.*.*' ]
 
 env:
