@@ -1,0 +1,80 @@
+version: '2.5'
+
+services:
+  bitcoind:
+        image: ruimarinho/bitcoin-core:0.21
+        restart: unless-stopped
+        healthcheck:
+            test: curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1
+        command:
+            -par=2
+            -maxmempool=500
+            -printtoconsole
+            -server=1
+            -dbcache=2048
+            -maxconnections=50
+            -rpcbind=0.0.0.0
+            -rpcallowip=0.0.0.0/0
+            -rpcuser=bitcoind
+            -prune=5000
+            -rpcpassword=bitcoind
+            -nodebuglogfile
+            -debug=rpc
+        ports:
+            - "127.0.0.1:8335:8332"
+        volumes:
+            - ./data/bitcoind:/home/bitcoin/.bitcoin:cached
+
+  bitcoind_exporter:
+    build: .
+    depends_on:
+      - bitcoind
+    environment:
+        - HOST=0.0.0.0
+        - BITCOIND=http://bitcoind:bitcoind@bitcoind:8332
+    ports:
+        - "127.0.0.1:8064:8064"
+
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider localhost:9090 || exit 1"]
+      interval: 10s
+      retries: 30
+    depends_on:
+      - bitcoind_exporter
+    volumes:
+      - './staff/prometheus.yml:/etc/prometheus/prometheus.yml:ro'
+      - 'prometheus_data:/prometheus'
+    command:
+      - '--storage.tsdb.retention.time=90d'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--log.level=debug'
+    ports:
+        - "127.0.0.1:9090:9090"
+
+  grafana:
+    image: grafana/grafana-oss:8.3.3
+    container_name: grafana
+    restart: unless-stopped
+    user: "104"
+    depends_on:
+      - prometheus
+    volumes:
+      - 'grafana_data:/var/lib/grafana'
+      - './staff/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro'
+      - './staff/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro'
+    healthcheck:
+        test: ["CMD-SHELL", "wget -q --spider localhost:3000/api/health || exit 1"]
+        interval: 10s
+        retries: 30
+    environment:
+        GF_SECURITY_ADMIN_PASSWORD: admin
+        GF_USERS_ALLOW_SIGN_UP: false
+    ports:
+        - '0.0.0.0:8080:3000'
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}

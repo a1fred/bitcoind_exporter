@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+- name: 'Prometheus'
+  disableDeletion: true
+  type: file
+  folder: ''
+  options:
+    path: /etc/grafana/provisioning/dashboards
