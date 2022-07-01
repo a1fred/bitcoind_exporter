@@ -38,7 +38,7 @@ jobs:
       bitcoind:
         image: ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
         options: >-
-          -v ./staff/bitcoind.conf:/home/bitcoin/.bitcoind/bitcoind.conf:ro
+          -v "${{ github.workspace }}./staff/bitcoind.conf:/home/bitcoin/.bitcoind/bitcoind.conf:ro"
           --health-cmd="curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H "content-type:text/plain;" http://bitcoind:bitcoind@localhost:8332/ || exit 1"
           --health-interval 10s
           --health-timeout 5s
