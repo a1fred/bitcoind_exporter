@@ -50,7 +50,7 @@ jobs:
         poetry install --no-root
     - name: Test
       env:
-        BITCOIND: http://bitcoind:bitcoind@bitcoind:8332
+        BITCOIND: http://bitcoind:bitcoind@127.0.0.1:8332
       run: |
         poetry run pytest -vx --log-level=0 --cov=bitcoind_exporter --asyncio-mode=strict tests/
 
