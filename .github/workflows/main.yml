@@ -42,7 +42,7 @@ jobs:
         python-version: "3.8"
     - name: Run bitcoind ${{ matrix.bitcoind_version }}
       run: |
-        docker create --name=bitcoind --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1" -p8332:8332 -v $(pwd)/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf --rm -it ${{ matrix.bitcoind_version }}
+        docker create --name=bitcoind --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1" -p8332:8332 -v $(pwd)/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
