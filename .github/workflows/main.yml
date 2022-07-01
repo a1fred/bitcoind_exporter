@@ -31,7 +31,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1
       matrix:
         bitcoind_version: ["0.19", "0.20", "0.21", "0.22", "0.23"]
     name: Test with bitcoin-core:${{ matrix.bitcoind_version }}
@@ -40,7 +39,7 @@ jobs:
         image: ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
         options: >-
           -v ./staff/bitcoind.conf:/home/bitcoin/.bitcoind/bitcoind.conf:ro
-          --health-cmd 'curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H "content-type:text/plain;" http://bitcoind:bitcoind@localhost:8332/ || exit 1'
+          --health-cmd="curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H "content-type:text/plain;" http://bitcoind:bitcoind@localhost:8332/ || exit 1"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
