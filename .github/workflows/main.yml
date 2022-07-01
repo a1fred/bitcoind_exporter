@@ -34,21 +34,15 @@ jobs:
       matrix:
         bitcoind_version: ["0.19", "0.20", "0.21", "22", "23"]
     name: Test with bitcoin-core:${{ matrix.bitcoind_version }}
-    services:
-      bitcoind:
-        image: ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
-        options: >-
-          -v "${{ github.workspace }}/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf"
-          --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.8
       uses: actions/setup-python@v3
       with:
         python-version: "3.8"
+    - name: Run bitcoind ${{ matrix.bitcoind_version }}
+      run: |
+        docker create --name=bitcoind --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1" -p8332:8332 -v $(pwd)/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf --rm -it ${{ matrix.bitcoind_version }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
