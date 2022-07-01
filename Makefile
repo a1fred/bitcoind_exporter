@@ -21,3 +21,7 @@ test: qa
 .PHONY: webapp
 webapp:
 	poetry run python -m bitcoind_exporter
+
+.PHONY: docs
+docs: dev
+	curl -q 127.0.0.1:8064/metrics > docs/metrics.sample

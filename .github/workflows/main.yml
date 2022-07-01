@@ -10,27 +10,56 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  static-check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.8"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install --no-root
+      - name: Lint
+        run: |
+          poetry run flake8 .
+          poetry run mypy --warn-unused-ignores .
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        bitcoind_version: ["0.19", "0.20", "0.21", "0.22", "0.23"]
+    name: Test with bitcoin-core:${{ matrix.bitcoind_version }}
+    services:
+      bitcoind:
+        image: ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
+        options: >-
+          -v ./staff/bitcoind.conf:/home/bitcoin/.bitcoind/bitcoind.conf:ro
+          --health-cmd curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
+    - name: Set up Python 3.8
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+        python-version: "3.8"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install poetry
         poetry install --no-root
-    - name: Lint
+    - name: Test
+      env:
+        BITCOIND: http://bitcoind:bitcoind@bitcoind:8332
       run: |
-        poetry run flake8 .
-        poetry run mypy --warn-unused-ignores .
-    # Need running bitcoind for tests ;(
-    # - name: Test
-    #   run: |
-    #     poetry run pytest -vx --log-level=0 --cov=bitcoind_exporter --asyncio-mode=strict tests/
+        poetry run pytest -vx --log-level=0 --cov=bitcoind_exporter --asyncio-mode=strict tests/
 
   build-and-push-image:
     runs-on: ubuntu-latest

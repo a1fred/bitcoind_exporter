@@ -1,0 +1,172 @@
+# HELP estimaterawfee_long_feerate estimate fee rate in BTC/kB
+# TYPE estimaterawfee_long_feerate gauge
+estimaterawfee_long_feerate{conf_target="1",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="1",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="1",threshold="0.9"} 0
+estimaterawfee_long_feerate{conf_target="2",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="2",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="2",threshold="0.9"} 0
+estimaterawfee_long_feerate{conf_target="3",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="3",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="3",threshold="0.9"} 0
+estimaterawfee_long_feerate{conf_target="4",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="4",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="4",threshold="0.9"} 0
+estimaterawfee_long_feerate{conf_target="5",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="5",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="5",threshold="0.9"} 0
+estimaterawfee_long_feerate{conf_target="6",threshold="0.99"} 0
+estimaterawfee_long_feerate{conf_target="6",threshold="0.95"} 0
+estimaterawfee_long_feerate{conf_target="6",threshold="0.9"} 0
+# HELP estimaterawfee_medium_feerate estimate fee rate in BTC/kB
+# TYPE estimaterawfee_medium_feerate gauge
+estimaterawfee_medium_feerate{conf_target="1",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="1",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="1",threshold="0.9"} 0
+estimaterawfee_medium_feerate{conf_target="2",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="2",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="2",threshold="0.9"} 0
+estimaterawfee_medium_feerate{conf_target="3",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="3",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="3",threshold="0.9"} 0
+estimaterawfee_medium_feerate{conf_target="4",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="4",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="4",threshold="0.9"} 0
+estimaterawfee_medium_feerate{conf_target="5",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="5",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="5",threshold="0.9"} 0
+estimaterawfee_medium_feerate{conf_target="6",threshold="0.99"} 0
+estimaterawfee_medium_feerate{conf_target="6",threshold="0.95"} 0
+estimaterawfee_medium_feerate{conf_target="6",threshold="0.9"} 0
+# HELP estimaterawfee_short_feerate estimate fee rate in BTC/kB
+# TYPE estimaterawfee_short_feerate gauge
+estimaterawfee_short_feerate{conf_target="1",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="1",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="1",threshold="0.9"} 0
+estimaterawfee_short_feerate{conf_target="2",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="2",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="2",threshold="0.9"} 0
+estimaterawfee_short_feerate{conf_target="3",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="3",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="3",threshold="0.9"} 0
+estimaterawfee_short_feerate{conf_target="4",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="4",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="4",threshold="0.9"} 0
+estimaterawfee_short_feerate{conf_target="5",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="5",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="5",threshold="0.9"} 0
+estimaterawfee_short_feerate{conf_target="6",threshold="0.99"} 0
+estimaterawfee_short_feerate{conf_target="6",threshold="0.95"} 0
+estimaterawfee_short_feerate{conf_target="6",threshold="0.9"} 0
+# HELP estimatesmartfee_blocks block number where estimate was found
+# TYPE estimatesmartfee_blocks gauge
+estimatesmartfee_blocks{conf_target="1",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="1",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_blocks{conf_target="2",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="2",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_blocks{conf_target="3",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="3",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_blocks{conf_target="4",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="4",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_blocks{conf_target="5",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="5",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_blocks{conf_target="6",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_blocks{conf_target="6",estimate_mode="ECONOMICAL"} 0
+# HELP estimatesmartfee_feerate estimate fee rate in BTC/kB (only present if no errors were encountered)
+# TYPE estimatesmartfee_feerate gauge
+estimatesmartfee_feerate{conf_target="1",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="1",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_feerate{conf_target="2",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="2",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_feerate{conf_target="3",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="3",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_feerate{conf_target="4",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="4",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_feerate{conf_target="5",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="5",estimate_mode="ECONOMICAL"} 0
+estimatesmartfee_feerate{conf_target="6",estimate_mode="CONSERVATIVE"} 0
+estimatesmartfee_feerate{conf_target="6",estimate_mode="ECONOMICAL"} 0
+# HELP getblockchaininfo_blocks the height of the most-work fully-validated chain. The genesis block has height 0
+# TYPE getblockchaininfo_blocks gauge
+getblockchaininfo_blocks 392553
+# HELP getblockchaininfo_difficulty the current difficulty
+# TYPE getblockchaininfo_difficulty gauge
+getblockchaininfo_difficulty 103880340815.4559
+# HELP getblockchaininfo_headers the current number of headers we have validated
+# TYPE getblockchaininfo_headers gauge
+getblockchaininfo_headers 743159
+# HELP getblockchaininfo_initialblockdownload estimate of whether this node is in Initial Block Download mode
+# TYPE getblockchaininfo_initialblockdownload gauge
+getblockchaininfo_initialblockdownload 1
+# HELP getblockchaininfo_mediantime median time for the current best block
+# TYPE getblockchaininfo_mediantime gauge
+getblockchaininfo_mediantime 1452379059
+# HELP getblockchaininfo_verificationprogress estimate of verification progress [0..1]
+# TYPE getblockchaininfo_verificationprogress gauge
+getblockchaininfo_verificationprogress 0.1338518763628002
+# HELP getmempoolinfo_bytes Sum of all virtual transaction sizes as defined in BIP 141
+# TYPE getmempoolinfo_bytes gauge
+getmempoolinfo_bytes 0
+# HELP getmempoolinfo_maxmempool Maximum memory usage for the mempool
+# TYPE getmempoolinfo_maxmempool gauge
+getmempoolinfo_maxmempool 500000000
+# HELP getmempoolinfo_mempoolminfee Minimum fee rate in BTC/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee
+# TYPE getmempoolinfo_mempoolminfee gauge
+getmempoolinfo_mempoolminfee 0.00001
+# HELP getmempoolinfo_size Current tx count
+# TYPE getmempoolinfo_size gauge
+getmempoolinfo_size 0
+# HELP getmempoolinfo_usage Total memory usage for the mempool
+# TYPE getmempoolinfo_usage gauge
+getmempoolinfo_usage 0
+# HELP getmininginfo_blocks The current block
+# TYPE getmininginfo_blocks gauge
+getmininginfo_blocks 392555
+# HELP getmininginfo_currentblocktx The number of block transactions of the last assembled block
+# TYPE getmininginfo_currentblocktx gauge
+getmininginfo_currentblocktx 0
+# HELP getmininginfo_currentblockweight The block weight of the last assembled block
+# TYPE getmininginfo_currentblockweight gauge
+getmininginfo_currentblockweight 0
+# HELP getmininginfo_difficulty The current difficulty
+# TYPE getmininginfo_difficulty gauge
+getmininginfo_difficulty 103880340815.4559
+# HELP getmininginfo_networkhashps The network hashes per second
+# TYPE getmininginfo_networkhashps gauge
+getmininginfo_networkhashps 7.590390424978912E+17
+# HELP getmininginfo_pooledtx The size of the mempool
+# TYPE getmininginfo_pooledtx gauge
+getmininginfo_pooledtx 0
+# HELP getnettotals_totalbytesrecv Total bytes received
+# TYPE getnettotals_totalbytesrecv gauge
+getnettotals_totalbytesrecv 3505910041
+# HELP getnettotals_totalbytessent Total bytes sent
+# TYPE getnettotals_totalbytessent gauge
+getnettotals_totalbytessent 378457
+# HELP getnetworkinfo_connections the total number of connections
+# TYPE getnetworkinfo_connections gauge
+getnetworkinfo_connections 10
+# HELP getnetworkinfo_connections_in the number of inbound connections
+# TYPE getnetworkinfo_connections_in gauge
+getnetworkinfo_connections_in 0
+# HELP getnetworkinfo_connections_out the number of outbound connections
+# TYPE getnetworkinfo_connections_out gauge
+getnetworkinfo_connections_out 10
+# HELP getnetworkinfo_incrementalfee minimum fee increment for mempool limiting or BIP 125 replacement in BTC/kB
+# TYPE getnetworkinfo_incrementalfee gauge
+getnetworkinfo_incrementalfee 0.00001
+# HELP getnetworkinfo_networkactive whether p2p networking is enabled
+# TYPE getnetworkinfo_networkactive gauge
+getnetworkinfo_networkactive 1
+# HELP getnetworkinfo_protocolversion the protocol version
+# TYPE getnetworkinfo_protocolversion gauge
+getnetworkinfo_protocolversion 70016
+# HELP getnetworkinfo_relayfee minimum relay fee for transactions in BTC/kB
+# TYPE getnetworkinfo_relayfee gauge
+getnetworkinfo_relayfee 0.00001
+# HELP getnetworkinfo_timeoffset the time offset
+# TYPE getnetworkinfo_timeoffset gauge
+getnetworkinfo_timeoffset -15
+# HELP getnetworkinfo_version the server version
+# TYPE getnetworkinfo_version gauge
+getnetworkinfo_version 210100.0

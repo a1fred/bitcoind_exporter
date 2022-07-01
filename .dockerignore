@@ -4,4 +4,3 @@
 data
 .dockerignore
 docker-compose.yml
-staff
