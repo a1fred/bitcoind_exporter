@@ -15,3 +15,8 @@ Tested with `bitcoind v0.21`
 Docker container available at `ghcr.io/a1fred/bitcoind_exporter`.
 
 `amd64` and `arm64` arch supported.
+
+
+```
+docker create -v "./staff/bitcoind.conf:/home/bitcoin/.bitcoind/bitcoind.conf:ro" --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1" --health-interval 10s --health-timeout 5s --health-retries 5 ruimarinho/bitcoin-core:0.19
+```
