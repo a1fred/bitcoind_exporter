@@ -1,9 +1,23 @@
-# Bitcoind exporter
-Tested with `bitcoind v0.21`
+# Bitcoind prometheus exporter
 
+![grafana dashboard](dashboard.png)
+
+ * Tested with `bitcoind v0.21`
  * [metrics response example](docs/metrics.sample)
- * [docker-compose.yml](docker-compose.yml)
+ * [example docker-compose.yml](docker-compose.yml)
  * [grafana panel](staff/grafana/dashboards/bitcoind.json)
+
+# Collectors
+ * `bestblock` - `bestblock*` metrics, uses `getblock(bestblockhash)` rpc call
+ * `estimaterawfee` - `estimaterawfee*` metrics, uses `estimaterawfee` rpc call
+ * `estimatesmartfee` - `estimatesmartfee*` metrics, uses `estimatesmartfee` rpc call
+ * `getblockchaininfo` - `getblockchaininfo*` metrics, uses `getblockchaininfo` rpc call
+ * `getmemoryinfo` - `getmemoryinfo*` metrics, uses `getmemoryinfo` rpc call
+ * `getmempoolinfo` - `getmempoolinfo*` metrics, uses `getmempoolinfo` rpc call
+ * `getmininginfo` - `getmininginfo*` metrics, uses `getmininginfo` rpc call
+ * `getnettotals` - `getnettotals*` metrics, uses `getnettotals` rpc call
+ * `getnetworkinfo` - `getnetworkinfo*` metrics, uses `getnetworkinfo` rpc call
+ * `uptime` - `uptime` metric, uses `uptime` rpc call
 
 # Environment variables
  * `HOST` listen host, default:`localhost`
