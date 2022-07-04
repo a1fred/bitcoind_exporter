@@ -29,3 +29,6 @@
 Docker container available at `ghcr.io/a1fred/bitcoind_exporter`.
 
 `amd64` and `arm64` arch supported.
+
+# TODO
+ * Action test on bitcoind `0.19`, `0.20`, `0.21`, `22`, `23`
