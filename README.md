@@ -5,7 +5,7 @@
  * Tested with `bitcoind v0.21`
  * [metrics response example](docs/metrics.sample)
  * [example docker-compose.yml](docker-compose.yml)
- * [grafana panel](staff/grafana/dashboards/bitcoind.json)
+ * [grafana dashboard](staff/grafana/dashboards/bitcoind.json)
 
 # Collectors
  * `bestblock` - `bestblock*` metrics, uses `getblock(bestblockhash)` rpc call
