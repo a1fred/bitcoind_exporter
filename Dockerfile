@@ -10,7 +10,6 @@ COPY poetry.lock /app/poetry.lock
 COPY pyproject.toml /app/pyproject.toml
 
 RUN --mount=type=cache,mode=0755,target=/root/.cache \
-    --mount=type=cache,mode=0755,target=/usr/lib/rustlib \
     apk add --no-cache curl && \
     pip3 install --no-cache-dir poetry && poetry config virtualenvs.create false && \
     poetry install --no-dev --no-root && \
