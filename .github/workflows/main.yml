@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        bitcoind_version: ["0.19", "0.20", "0.21", "22", "23"]
+        bitcoind_version: ["0.19", "0.20", "0.21", "22", "23", "24"]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Start bitcoind
         uses: docker://docker
         with:

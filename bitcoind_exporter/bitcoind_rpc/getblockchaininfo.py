@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from decimal import Decimal
 from bitcoind_exporter.bitcoind_rpc.json_rpc import JsonRPCServer
 
@@ -17,7 +17,7 @@ class GetblockchaininfoResponse(BaseModel):
     pruned: bool
     pruneheight: int
     prune_target_size: int
-    softforks: dict
+    softforks: dict = Field(default_factory=dict)
     warnings: str
 
 
