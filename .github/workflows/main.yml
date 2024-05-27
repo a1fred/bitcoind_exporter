@@ -1,9 +1,6 @@
 name: Test and publish
 
-on:
-  push:
-    branches: ["master"]
-    tags: ["v*.*.*"]
+on: push
 
 env:
   REGISTRY: ghcr.io
