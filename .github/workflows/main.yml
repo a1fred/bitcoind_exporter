@@ -23,7 +23,7 @@ jobs:
       - name: Lint
         run: |
           poetry run flake8 .
-          poetry run mypy --warn-unused-ignores -p "bitcoind_exporter"
+          poetry run mypy --warn-unused-ignores .
   test:
     runs-on: ubuntu-latest
     strategy:

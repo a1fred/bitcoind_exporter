@@ -8,7 +8,7 @@ nodev:
 .PHONY: qa
 qa:
 	poetry run flake8 .
-	poetry run mypy --warn-unused-ignores -p "bitcoind_exporter.webapp"
+	poetry run mypy --warn-unused-ignores .
 
 .PHONY: test
 test: qa
