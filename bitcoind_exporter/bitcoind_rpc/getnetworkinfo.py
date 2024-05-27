@@ -27,8 +27,8 @@ class GetNetworkInfoResponse(BaseModel):
     localrelay: bool
     timeoffset: int
     connections: int
-    connections_in: int
-    connections_out: int
+    connections_in: int = 0
+    connections_out: int = 0
     networkactive: bool
     networks: typing.List[GetNetworkInfoResponseNetworks]
     relayfee: Decimal
