@@ -6,8 +6,8 @@ from bitcoind_exporter.bitcoind_rpc.json_rpc import JsonRPCServer
 
 class MiningInfoResponse(BaseModel):
     blocks: int
-    currentblockweight: typing.Optional[int]
-    currentblocktx: typing.Optional[int]
+    currentblockweight: typing.Optional[int] = None
+    currentblocktx: typing.Optional[int] = None
     difficulty: Decimal
     networkhashps: Decimal
     pooledtx: Decimal

@@ -15,7 +15,7 @@ class EstimateRawFeeResponseHorizonPass(BaseModel):
 
 
 class EstimateRawFeeResponseHorizon(BaseModel):
-    feerate: typing.Optional[Decimal]
+    feerate: typing.Optional[Decimal] = None
     decay: Decimal
     scale: Decimal
     horizon_pass: EstimateRawFeeResponseHorizonPass = Field(None, alias="pass")
@@ -29,7 +29,9 @@ class EstimateRawFeeResponse(BaseModel):
     long: EstimateRawFeeResponseHorizon
 
 
-async def estimaterawfee(connection_string: str, conf_target: int, threshold: float) -> EstimateRawFeeResponse:
+async def estimaterawfee(
+    connection_string: str, conf_target: int, threshold: float
+) -> EstimateRawFeeResponse:
     async with JsonRPCServer(connection_string) as server:
         data = await server.estimaterawfee(conf_target, threshold)
         return EstimateRawFeeResponse(**data)

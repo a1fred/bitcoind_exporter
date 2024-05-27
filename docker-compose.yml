@@ -2,28 +2,28 @@ version: '2.5'
 
 services:
   bitcoind:
-        image: ruimarinho/bitcoin-core:0.21
-        restart: unless-stopped
-        healthcheck:
-            test: curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1
-        command:
-            -par=2
-            -maxmempool=500
-            -printtoconsole
-            -server=1
-            -dbcache=2048
-            -maxconnections=50
-            -rpcbind=0.0.0.0
-            -rpcallowip=0.0.0.0/0
-            -rpcuser=bitcoind
-            -prune=5000
-            -rpcpassword=bitcoind
-            -nodebuglogfile
-            -debug=rpc
-        ports:
-            - "127.0.0.1:8335:8332"
-        volumes:
-            - ./data/bitcoind:/home/bitcoin/.bitcoin:cached
+    image: ruimarinho/bitcoin-core:0.21
+    restart: unless-stopped
+    healthcheck:
+        test: curl -s --fail --data-binary '{"jsonrpc":"1.0","id":"curltext","method":"getblockchaininfo","params":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1
+    command:
+        -par=2
+        -maxmempool=500
+        -printtoconsole
+        -server=1
+        -dbcache=2048
+        -maxconnections=50
+        -rpcbind=0.0.0.0
+        -rpcallowip=0.0.0.0/0
+        -rpcuser=bitcoind
+        -prune=5000
+        -rpcpassword=bitcoind
+        -nodebuglogfile
+        -debug=rpc
+    ports:
+        - "127.0.0.1:8335:8332"
+    volumes:
+        - ./data/bitcoind:/home/bitcoin/.bitcoin:cached
 
   bitcoind_exporter:
     build: .
@@ -33,7 +33,7 @@ services:
         - HOST=0.0.0.0
         - BITCOIND=http://bitcoind:bitcoind@bitcoind:8332
     ports:
-        - "127.0.0.1:8064:8064"
+        - "127.0.0.1:8065:8064"
 
   prometheus:
     image: prom/prometheus

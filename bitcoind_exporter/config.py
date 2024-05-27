@@ -9,11 +9,13 @@ from bitcoind_exporter.collectors import collectors
 
 class Settings(logger.LoggingMixin, sentry.SentryMixin, BaseSettings):
     # ----- Server api parameters section
-    HOST: str = 'localhost'    # Server listen address
-    PORT: int = 8064           # Server listen port
+    HOST: str = "localhost"  # Server listen address
+    PORT: int = 8064  # Server listen port
 
     # ----- Bitcoind parameters section
-    BITCOIND: str = "http://bitcoind:bitcoind@localhost:8335"  # Bitcoind connection string
+    BITCOIND: str = (
+        "http://bitcoind:bitcoind@localhost:8335"  # Bitcoind connection string
+    )
 
     COLLECTORS: str = ",".join(collectors.keys())
 
@@ -23,11 +25,15 @@ class Settings(logger.LoggingMixin, sentry.SentryMixin, BaseSettings):
 
 def get_settings() -> Settings:
     settings = Settings()
-    settings.load(loaders=[environ.Loader(), ])
+    settings.load(
+        loaders=[
+            environ.Loader(),
+        ]
+    )
     settings.print_detailed_settings()
 
     settings.initialize_logging()
-    logging.getLogger('hpack.hpack').setLevel(logging.FATAL)
+    logging.getLogger("hpack.hpack").setLevel(logging.FATAL)
 
     settings.initialize_sentry(
         default_integrations=False,

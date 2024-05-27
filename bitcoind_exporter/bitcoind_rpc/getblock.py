@@ -1,3 +1,4 @@
+from decimal import Decimal
 import typing
 from pydantic import BaseModel
 from bitcoind_exporter.bitcoind_rpc.json_rpc import JsonRPCServer
@@ -18,11 +19,11 @@ class BlockV1(BaseModel):
     mediantime: int
     nonce: int
     bits: str
-    difficulty: int
+    difficulty: Decimal
     chainwork: str
     nTx: int
-    previousblockhash: typing.Optional[str]
-    nextblockhash: typing.Optional[str]
+    previousblockhash: typing.Optional[str] = None
+    nextblockhash: typing.Optional[str] = None
 
 
 async def getblock_v1(connection_string: str, blockhash: str) -> BlockV1:
