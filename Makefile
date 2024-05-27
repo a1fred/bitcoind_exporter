@@ -24,4 +24,4 @@ webapp:
 
 .PHONY: docs
 docs: dev
-	curl -q 127.0.0.1:8064/metrics > docs/metrics.sample
+	curl -q 127.0.0.1:8065/metrics > docs/metrics.sample

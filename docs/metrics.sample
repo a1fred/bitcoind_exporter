@@ -1,36 +1,36 @@
 # HELP bestblock_difficulty The difficulty
 # TYPE bestblock_difficulty gauge
-bestblock_difficulty 6379265451411
+bestblock_difficulty 3249549.584487207
 # HELP bestblock_height The block height or index
 # TYPE bestblock_height gauge
-bestblock_height 569441
+bestblock_height 217071
 # HELP bestblock_mediantime The median block time expressed in UNIX epoch time
 # TYPE bestblock_mediantime gauge
-bestblock_mediantime 1553931200
+bestblock_mediantime 1358552547
 # HELP bestblock_nonce The nonce
 # TYPE bestblock_nonce gauge
-bestblock_nonce 3871415093
+bestblock_nonce 2022721552
 # HELP bestblock_size The block size
 # TYPE bestblock_size gauge
-bestblock_size 1159812
+bestblock_size 221226
 # HELP bestblock_strippedsize The block size excluding witness data
 # TYPE bestblock_strippedsize gauge
-bestblock_strippedsize 946230
+bestblock_strippedsize 221226
 # HELP bestblock_time The block time expressed in UNIX epoch time
 # TYPE bestblock_time gauge
-bestblock_time 1553933840
+bestblock_time 1358553906
 # HELP bestblock_tx_count The number of transactions in the block
 # TYPE bestblock_tx_count gauge
-bestblock_tx_count 2430
+bestblock_tx_count 764
 # HELP bestblock_version The block version
 # TYPE bestblock_version gauge
-bestblock_version 536928256
+bestblock_version 2
 # HELP bestblock_weight The block weight as defined in BIP 141
 # TYPE bestblock_weight gauge
-bestblock_weight 3998502
+bestblock_weight 884904
 # HELP bitcoind_uptime The number of seconds that the server has been running
 # TYPE bitcoind_uptime gauge
-bitcoind_uptime 56216
+bitcoind_uptime 973
 # HELP estimaterawfee_long_feerate estimate fee rate in BTC/kB
 # TYPE estimaterawfee_long_feerate gauge
 estimaterawfee_long_feerate{conf_target="1",threshold="0.99"} 0
@@ -121,22 +121,22 @@ estimatesmartfee_feerate{conf_target="6",estimate_mode="CONSERVATIVE"} 0
 estimatesmartfee_feerate{conf_target="6",estimate_mode="ECONOMICAL"} 0
 # HELP getblockchaininfo_blocks the height of the most-work fully-validated chain. The genesis block has height 0
 # TYPE getblockchaininfo_blocks gauge
-getblockchaininfo_blocks 569447
+getblockchaininfo_blocks 217071
 # HELP getblockchaininfo_difficulty the current difficulty
 # TYPE getblockchaininfo_difficulty gauge
-getblockchaininfo_difficulty 6379265451411.053
+getblockchaininfo_difficulty 3249549.584487207
 # HELP getblockchaininfo_headers the current number of headers we have validated
 # TYPE getblockchaininfo_headers gauge
-getblockchaininfo_headers 743601
+getblockchaininfo_headers 845423
 # HELP getblockchaininfo_initialblockdownload estimate of whether this node is in Initial Block Download mode
 # TYPE getblockchaininfo_initialblockdownload gauge
 getblockchaininfo_initialblockdownload 1
 # HELP getblockchaininfo_mediantime median time for the current best block
 # TYPE getblockchaininfo_mediantime gauge
-getblockchaininfo_mediantime 1553934096
+getblockchaininfo_mediantime 1358552547
 # HELP getblockchaininfo_verificationprogress estimate of verification progress [0..1]
 # TYPE getblockchaininfo_verificationprogress gauge
-getblockchaininfo_verificationprogress 0.5164961648826794
+getblockchaininfo_verificationprogress 0.01162692968166925
 # HELP getmemoryinfo_chunks_free Number unused chunks
 # TYPE getmemoryinfo_chunks_free gauge
 getmemoryinfo_chunks_free 1
@@ -145,13 +145,13 @@ getmemoryinfo_chunks_free 1
 getmemoryinfo_chunks_used 1
 # HELP getmemoryinfo_free Number of bytes available in current arenas
 # TYPE getmemoryinfo_free gauge
-getmemoryinfo_free 65296
+getmemoryinfo_free 261904
 # HELP getmemoryinfo_locked Amount of bytes that succeeded locking.
 # TYPE getmemoryinfo_locked gauge
-getmemoryinfo_locked 65536
+getmemoryinfo_locked 262144
 # HELP getmemoryinfo_total Total number of bytes managed
 # TYPE getmemoryinfo_total gauge
-getmemoryinfo_total 65536
+getmemoryinfo_total 262144
 # HELP getmemoryinfo_used Number of bytes used
 # TYPE getmemoryinfo_used gauge
 getmemoryinfo_used 240
@@ -172,7 +172,7 @@ getmempoolinfo_size 0
 getmempoolinfo_usage 0
 # HELP getmininginfo_blocks The current block
 # TYPE getmininginfo_blocks gauge
-getmininginfo_blocks 569453
+getmininginfo_blocks 217071
 # HELP getmininginfo_currentblocktx The number of block transactions of the last assembled block
 # TYPE getmininginfo_currentblocktx gauge
 getmininginfo_currentblocktx 0
@@ -181,19 +181,19 @@ getmininginfo_currentblocktx 0
 getmininginfo_currentblockweight 0
 # HELP getmininginfo_difficulty The current difficulty
 # TYPE getmininginfo_difficulty gauge
-getmininginfo_difficulty 6379265451411.053
+getmininginfo_difficulty 3249549.584487207
 # HELP getmininginfo_networkhashps The network hashes per second
 # TYPE getmininginfo_networkhashps gauge
-getmininginfo_networkhashps 4.930787702205991E+19
+getmininginfo_networkhashps 19782554852709.52
 # HELP getmininginfo_pooledtx The size of the mempool
 # TYPE getmininginfo_pooledtx gauge
 getmininginfo_pooledtx 0
 # HELP getnettotals_totalbytesrecv Total bytes received
 # TYPE getnettotals_totalbytesrecv gauge
-getnettotals_totalbytesrecv 58787431503
+getnettotals_totalbytesrecv 3205266184
 # HELP getnettotals_totalbytessent Total bytes sent
 # TYPE getnettotals_totalbytessent gauge
-getnettotals_totalbytessent 5117252
+getnettotals_totalbytessent 1977971
 # HELP getnetworkinfo_connections the total number of connections
 # TYPE getnetworkinfo_connections gauge
 getnetworkinfo_connections 10
