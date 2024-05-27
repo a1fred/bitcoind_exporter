@@ -27,6 +27,7 @@ services:
 
   bitcoind_exporter:
     build: .
+    platform: linux/arm64
     depends_on:
       - bitcoind
     environment:
