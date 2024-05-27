@@ -42,7 +42,7 @@ jobs:
             --health-interval 10s
             --health-timeout 5s
             --health-retries 5
-            -v $PWD/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf
+            -v "${{ github.workspace }}/staff/bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf"
             ruimarinho/bitcoin-core:${{ matrix.bitcoind_version }}
       - name: "Wait until the container is healthy"
         uses: raschmitt/wait-for-healthy-container/@master
