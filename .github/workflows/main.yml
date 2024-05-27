@@ -35,8 +35,8 @@ jobs:
         uses: docker://docker
         with:
           args: >-
-            docker run --rm
-            --name=bitcoind -d --restart=always
+            docker run
+            --name=bitcoind -d --restart=unless-stopped
             -p 8332:8332 -p 8333:8333 -p 8334:8334
             --health-cmd="curl -s --fail --data-binary '{\"jsonrpc\":\"1.0\",\"id\":\"curltext\",\"method\":\"getblockchaininfo\",\"params\":[]}' -H 'content-type:text/plain;' http://bitcoind:bitcoind@localhost:8332/ || exit 1"
             --health-interval 10s
