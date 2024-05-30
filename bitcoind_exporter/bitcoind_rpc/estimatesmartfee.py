@@ -7,7 +7,7 @@ from decimal import Decimal
 
 class EstimateSmartFeeResponse(BaseModel):
     feerate: typing.Optional[Decimal] = None
-    errors: typing.List[str]
+    errors: typing.List[str] = []
     blocks: int
 
 
