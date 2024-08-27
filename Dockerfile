@@ -15,7 +15,7 @@ RUN --mount=type=cache,mode=0755,target=/root/.cache \
     --mount=type=cache,mode=0755,target=/usr/lib/rustlib \
     apk add --no-cache gcc libgcc musl-dev libffi-dev curl rust cargo && \
     pip3 install --no-cache-dir poetry && poetry config virtualenvs.create false && \
-    poetry install --no-dev --no-root && \
+    poetry install --only main --no-root && \
     apk del gcc musl-dev rust cargo && \
     pip3 uninstall -y poetry
 
