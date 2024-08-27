@@ -14,9 +14,9 @@ class GetblockchaininfoResponse(BaseModel):
     initialblockdownload: bool
     chainwork: str
     size_on_disk: int
-    pruned: bool
-    pruneheight: int
-    prune_target_size: int
+    pruned: bool = False
+    pruneheight: int = 0
+    prune_target_size: int = 0
     softforks: dict = Field(default_factory=dict)
     warnings: str
 
